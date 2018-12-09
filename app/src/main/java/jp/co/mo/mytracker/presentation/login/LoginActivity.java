@@ -3,7 +3,6 @@ package jp.co.mo.mytracker.presentation.login;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,11 +14,12 @@ import butterknife.OnClick;
 import jp.co.mo.mytracker.CallBackAction;
 import jp.co.mo.mytracker.R;
 import jp.co.mo.mytracker.common.Parameter;
+import jp.co.mo.mytracker.presentation.AbstractBaseActivity;
 import jp.co.mo.mytracker.presentation.tracker.MyTrackerActivity;
 import jp.co.mo.mytracker.repository.AppDataManager;
 import jp.co.mo.mytracker.repository.DatabaseManager;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AbstractBaseActivity {
 
     private Context mContext;
 
@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         String phoneNumber = mLoginPhoneNumber.getText().toString();
 
         if (!TextUtils.isEmpty(phoneNumber)) {
-            AppDataManager.getInstance().saveStringData(this, Parameter.KEY_PHONE_NUMBER, phoneNumber);
+            AppDataManager.getInstance().saveStringData(this, Parameter.KEY_PHONE_NUMBER, DatabaseManager.formatPhoneNumber(phoneNumber));
             DatabaseManager.updateLocationInFirebase(phoneNumber, new CallBackAction() {
                 @Override
                 public void success() {
