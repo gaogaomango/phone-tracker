@@ -1,4 +1,4 @@
-package jp.co.mo.mytracker;
+package jp.co.mo.mytracker.repository;
 
 import android.content.Context;
 import android.content.SharedPreferences;

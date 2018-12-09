@@ -1,9 +1,11 @@
-package jp.co.mo.mytracker;
+package jp.co.mo.mytracker.presentation;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
+
+import jp.co.mo.mytracker.R;
 
 public class MainActivity extends AppCompatActivity {
 

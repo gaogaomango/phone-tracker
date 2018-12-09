@@ -1,4 +1,4 @@
-package jp.co.mo.mytracker;
+package jp.co.mo.mytracker.repository;
 
 import android.support.annotation.NonNull;
 
@@ -7,6 +7,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import jp.co.mo.mytracker.CallBackAction;
 import jp.co.mo.mytracker.common.DateUtil;
 
 public class DatabaseManager {
@@ -19,17 +20,17 @@ public class DatabaseManager {
                 .child(userPhone)
                 .child(DATA_KEY_UPDATES)
                 .setValue(DateUtil.format(DateUtil.DATE_FORMAT_YYYM_MD_DH_H_M_SS, DateUtil.now()))
-        .addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                callBack.success();
-            }
-        })
-        .addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                callBack.failed();
-            }
-        });
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        callBack.success();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        callBack.failed();
+                    }
+                });
     }
 }
