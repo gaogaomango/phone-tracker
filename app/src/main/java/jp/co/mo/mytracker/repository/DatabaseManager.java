@@ -29,7 +29,7 @@ public class DatabaseManager {
     public static final String DATA_KEY_LONGITUDE = "lon";
     public static final String DATA_KEY_DATE = "date";
 
-    public  static Map<String,String> myTrackers = new HashMap<>();
+    public static Map<String,String> myTrackers = new HashMap<>();
 
     public static void updateLocationInFirebase(String userPhone, final CallBackAction callBack) {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -164,7 +164,9 @@ public class DatabaseManager {
         myTrackers.clear();
         Gson gson = new Gson();
         Map<String, String> map = gson.fromJson(AppDataManager.getInstance().loadStringData(context, Parameter.KEY_TRACKER), Map.class);
-        myTrackers = map;
+        if(map != null && !map.isEmpty()) {
+            myTrackers = map;
+        }
         return map;
     }
 }

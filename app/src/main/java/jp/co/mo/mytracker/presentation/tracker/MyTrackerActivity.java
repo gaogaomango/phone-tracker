@@ -65,6 +65,10 @@ public class MyTrackerActivity extends AbstractBaseActivity {
 
     private void refresh() {
         mUserList.clear();
+        if(DatabaseManager.myTrackers == null || DatabaseManager.myTrackers.isEmpty()) {
+            return;
+        }
+
         for(Map.Entry e : DatabaseManager.myTrackers.entrySet()) {
             mUserList.add(new UserInfo(e.getValue().toString(), e.getKey().toString()));
         }
