@@ -87,7 +87,7 @@ public class MyTrackerActivity extends AbstractBaseActivity {
                 finish();
                 return true;
             case R.id.add:
-                checkedPermission(new PermissionCallBackAction() {
+                checkPermission(new PermissionCallBackAction() {
                     @Override
                     public void success() {
                         pickContact();

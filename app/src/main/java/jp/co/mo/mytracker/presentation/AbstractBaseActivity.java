@@ -9,11 +9,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
-import com.google.firebase.analytics.FirebaseAnalytics;
-
-import jp.co.mo.mytracker.CallBackAction;
 import jp.co.mo.mytracker.PermissionCallBackAction;
-import jp.co.mo.mytracker.R;
 
 public abstract class AbstractBaseActivity extends AppCompatActivity {
 
@@ -26,11 +22,11 @@ public abstract class AbstractBaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
     }
 
-    protected void checkedPermission(PermissionCallBackAction permissionCallBackAction) {
-        checkedPermission(PERMISSION_LIST, permissionCallBackAction);
+    protected void checkPermission(PermissionCallBackAction permissionCallBackAction) {
+        checkPermission(PERMISSION_LIST, permissionCallBackAction);
     }
 
-    protected void checkedPermission(String[] permissions, PermissionCallBackAction permissionCallBackAction) {
+    protected void checkPermission(String[] permissions, PermissionCallBackAction permissionCallBackAction) {
         mPermissionCallBackAction = permissionCallBackAction;
         if (Build.VERSION.SDK_INT >= 23) {
             if (!checkPermissionGranted(permissions)) {
