@@ -55,9 +55,15 @@ public abstract class AbstractBaseActivity extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        boolean isSuccess = true;
         switch (requestCode) {
             case REQUEST_CODE_ASK_PERMISSIONS:
-                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                for(int i : grantResults) {
+                    if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
+                        isSuccess = false;
+                    }
+                }
+                if (isSuccess) {
                     mPermissionCallBackAction.success();
                 } else {
                     Toast.makeText(this, "please check permissions.", Toast.LENGTH_LONG).show();
