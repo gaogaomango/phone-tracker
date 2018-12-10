@@ -348,4 +348,4 @@ Temporary Items
 # End of https://www.gitignore.io/api/git,java,macos,kotlin,android,firebase,intellij,androidstudio
 
 
-google_maps_api_key.xml
+google_maps_api.xml
