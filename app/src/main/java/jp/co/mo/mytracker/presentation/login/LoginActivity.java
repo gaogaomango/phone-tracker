@@ -21,8 +21,6 @@ import jp.co.mo.mytracker.repository.DatabaseManager;
 
 public class LoginActivity extends AbstractBaseActivity {
 
-    private Context mContext;
-
     @BindView(R.id.loginPhoneNumber)
     EditText mLoginPhoneNumber;
     @BindView(R.id.nextBtn)
@@ -35,8 +33,6 @@ public class LoginActivity extends AbstractBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-        this.mContext = this;
-
     }
 
     @OnClick(R.id.nextBtn)
@@ -62,5 +58,6 @@ public class LoginActivity extends AbstractBaseActivity {
     private void moveNextActivity() {
         Intent i = new Intent(this, MyTrackerActivity.class);
         startActivity(i);
+        finish();
     }
 }

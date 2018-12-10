@@ -69,6 +69,7 @@ public class MyTrackerActivity extends AbstractBaseActivity {
             mUserList.add(new UserInfo(e.getValue().toString(), e.getKey().toString()));
         }
         mUserAdapter.notifyDataSetChanged();
+        DatabaseManager.saveMyTrackers(this);
     }
 
     @Override
